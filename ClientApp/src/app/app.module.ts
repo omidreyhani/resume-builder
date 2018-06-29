@@ -32,7 +32,7 @@ import { UserComponent } from './user/user.component';
       { path: 'dfd', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: '', component: LoginComponent, pathMatch:'full' },
-      { path: 'user', component: UserComponent },
+      { path: 'user', component: UserComponent,pathMatch:'full' },
       { path: 'fetch-data', component: FetchDataComponent },
     ])
   ],

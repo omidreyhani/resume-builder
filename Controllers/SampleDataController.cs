@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.NodeServices;
 
 namespace resume_builder.Controllers
 {
@@ -24,6 +25,14 @@ namespace resume_builder.Controllers
                 TemperatureC = rng.Next(-20, 55),
                 Summary = Summaries[rng.Next(Summaries.Length)]
             });
+        }
+
+        [HttpGet("[action]/{param}")]
+        public async Task<IActionResult> AddAsync([FromServices] INodeServices nodeServices,string param)
+        {
+            var result = await nodeServices.InvokeAsync<string>("AddModule.js", param );
+            ViewData["ResultFromNode"] = result;
+            return View();
         }
 
         public class WeatherForecast
