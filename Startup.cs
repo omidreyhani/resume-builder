@@ -28,6 +28,8 @@ namespace resume_builder
 
 
             services.AddNodeServices();
+
+          //  services.AddAuthentication().AddGoogle(configureOptions=> configureOptions.)
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
